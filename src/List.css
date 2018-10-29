@@ -1,14 +1,15 @@
-.table-head{
-color:black;
-margin: 0;
 
+.List{
+    border-color: aqua;
 
 }
-
-.dtag
-{
-    width: '100%' ;
-    box-sizing: 'border-box';
-    padding: 8;
-    border : black;
+.List_content {
+border-spacing: "50px";
+margin-top :"300px";
+padding-top:"2px";
+padding-bottom:"2px";
+color: "black";
+margin-Left: "50px";
+border-Bottom: "2px solid white";
+border-Top:"2px solid white"
 }

@@ -1,9 +1,10 @@
-import React from 'react';
+import React, {Component} from 'react';
+import ReactDOM from 'react-dom';
 import {Table} from 'react-bootstrap';
 import axios from 'axios';
 import './List.css';
 
-export default class List extends React.Component {
+export default class List extends Component {
   state = {
     persons: []
   }
@@ -19,8 +20,8 @@ export default class List extends React.Component {
 
   render() {
     return (
-  <div>
-    <Table striped bordered condensed hover>
+    <div>
+    <Table   responsive bordered striped style={{width:"100%",borderSpacing: "0px",marginTop: "50px",color: "black"}}>
     <thead >
       <tr>
         <th>Retail Store</th> 
@@ -45,7 +46,7 @@ export default class List extends React.Component {
       })}
     </tbody>
     </Table>
-  </div>
+    </div>
     )
   }
 }
