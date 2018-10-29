@@ -1,0 +1,14 @@
+.table-head{
+color:black;
+margin: 0;
+
+
+}
+
+.dtag
+{
+    width: '100%' ;
+    box-sizing: 'border-box';
+    padding: 8;
+    border : black;
+}

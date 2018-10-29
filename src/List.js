@@ -1,6 +1,7 @@
 import React from 'react';
-
+import {Table} from 'react-bootstrap';
 import axios from 'axios';
+import './List.css';
 
 export default class List extends React.Component {
   state = {
@@ -8,7 +9,7 @@ export default class List extends React.Component {
   }
 
   componentDidMount() {
-    axios.get(`http://138.68.251.108:9200/retailpoc/_search?pretty`)
+    axios.get(`http://138.68.251.108:9200/retailpocdev/_search?pretty`)
       .then(res => {
         console.log(res.data.hits.hits);
         const persons = res.data.hits.hits;
@@ -18,9 +19,33 @@ export default class List extends React.Component {
 
   render() {
     return (
-      <ul>
-        { this.state.persons.map(person => <li>{person._source.catalogItem.transactions.transactionId}</li>)}
-      </ul>
+  <div>
+    <Table striped bordered condensed hover>
+    <thead >
+      <tr>
+        <th>Retail Store</th> 
+        <th>Customer ID </th> 
+        <th>Transaction ID </th> 
+        <th>Transaction Time</th>
+        <th>Product ID</th>
+        <th>Cost</th>
+      </tr>
+    </thead>
+    <tbody> {this.state.persons.map( function (person, key) {
+        return(
+          <tr key={ person._id}>            
+            <td>{ person._source.catalogItem.retailStore} </td> 
+            <td>{ person._source.catalogItem.customerId} </td> 
+            <td>{ person._source.catalogItem.transactions.transactionId} </td> 
+            <td>{ person._source.catalogItem.transactions.transactionTime} </td> 
+            <td>{ person._source.catalogItem.transactions.productId} </td> 
+            <td>{ person._source.catalogItem.transactions.cost} </td> 
+          </tr>
+              )
+      })}
+    </tbody>
+    </Table>
+  </div>
     )
   }
 }
