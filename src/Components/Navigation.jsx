@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import {Navbar, NavItem, NavDropdown, MenuItem, Nav, Button} from 'react-bootstrap';
+import {Link} from 'react-router-dom';
 import './Navigation.css';
+
 export default class Navigation  extends Component{
     render(){
         return(
@@ -11,12 +13,13 @@ export default class Navigation  extends Component{
               </Navbar.Brand>
             </Navbar.Header>
             <Nav>
-              <NavItem eventKey={1} href="#">
-                Link
+            <NavItem eventKey={1} href="#">
+              <Link to ="/">Home</Link>
               </NavItem>
               <NavItem eventKey={2} href="#">
-                Link
+              <Link to ="/details">Details</Link>
               </NavItem>
+              
               <NavDropdown eventKey={3} title="Dropdown" id="basic-nav-dropdown">
                 <MenuItem eventKey={3.1}>Action</MenuItem>
                 <MenuItem eventKey={3.2}>Another action</MenuItem>
